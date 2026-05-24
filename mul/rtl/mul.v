@@ -20,7 +20,7 @@ module mul (
 );
 
 
-
+wire all_zeroes_flag;
 reg [7:0] bias;
 reg exp_sum_is_zero;
 
@@ -41,7 +41,7 @@ wire [52:0] mult_mant_to_ones;
 wire [53:0] mult_mant;
 reg [53:0] mult_mant_norm, mult_mant_norm_temp;
 reg [27:0] mult_mant_trunc;
-wire [4:0] zero_count;
+wire [5:0] zero_count;
 reg [8:0] mult_mant_adj;
 wire is_sub,  sticky_bit;
 
@@ -87,7 +87,7 @@ end
 
 assign mult_mant = in1_mant_extend * in2_mant_extend;
 
-lzc lcz1({mult_mant[52:21]}, zero_count);
+lzc #(32) lcz1({mult_mant[52:21]}, zero_count);
 
 assign mult_mant_to_ones = (53'd1 << mult_mant_adj) - 1;
 assign sticky_bit = |(mult_mant & {mult_mant_to_ones,1'b1});

@@ -132,7 +132,7 @@ always @(*) begin
 
 end
 
-lzc lcz1({sum_mant_comp[26:0], 5'd0}, zero_count, all_zeroes_flag);
+lzc #(27) lcz1({sum_mant_comp[26:0]}, zero_count, all_zeroes_flag);
 
 
 //resulting mantissa normalization
