@@ -161,7 +161,7 @@ module add_tb;
                 end
                 // end
         end
-        if ($err_cnt == 0)begin
+        if (err_cnt == 0)begin
             test_status="\033[32mPASSED\033[0m";
         end
         else begin

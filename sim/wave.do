@@ -1,7 +1,7 @@
 if {![info exists OP]} { set OP "add" }
 if {![info exists MODE]} { set MODE "RNE" }
-if {![info exists IN]} { set IN "adder/vectors" }
-if {![info exists OUT]} { set OUT "adder/vectors" }
+if {![info exists IN]} { set IN "$(PROJECT_PATH)/add/vectors" }
+if {![info exists OUT]} { set OUT "$(PROJECT_PATH)/add/vectors" }
 
 quit -sim
 
